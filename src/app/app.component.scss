@@ -1,0 +1,17 @@
+main {
+  padding: 50px 0;
+}
+
+.main-page {
+  display: flex;
+  &__prodlist {
+    width: 75%;
+    &.full-width {
+      width: 100%;
+    }
+  }
+  &__cart {
+    width: 25%;
+  }
+
+}

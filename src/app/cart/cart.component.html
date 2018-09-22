@@ -1,3 +1,19 @@
-<p>
-  cart works!
-</p>
+<h3>Cart</h3>
+
+<ul class="cart-list">
+  <li *ngFor="let product of cartProducts; index as i">
+    <span class="cart-list__index">{{ i + 1 }}.</span>
+    <div class="cart-list__title">{{ product.title }}</div>
+    <input 
+      class="cart-list__qty" 
+      type="number" 
+      min="1" 
+      #qty 
+      [value]="product.qty" 
+      (change)="changeQty($event, i, qty.value)" 
+      (keyup)="changeQty($event, i, qty.value)"
+    >
+    <span class="cart-list__price">${{ product.price * product.qty }}</span>
+    <button class="cart-list__remove" (click)="removeCartItem(i)">&#10006;</button>
+  </li>
+</ul>

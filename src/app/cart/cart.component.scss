@@ -1,0 +1,30 @@
+.cart-list {
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: solid 1px #bbb;
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none; 
+    }
+  }
+  &__index {
+    width: 20px;
+  }
+  &__title {
+    width: 150px;
+  }
+  &__qty {
+    width: 35px;
+  }
+  &__price {
+    width: 25px;
+  }
+  &__remove {
+    width: 26px;
+  }
+}

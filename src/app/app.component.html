@@ -2,7 +2,14 @@
 
 <main>
   <div class="wrap">
-    <app-prod-list [products]="products"></app-prod-list>
+    <div class="main-page">
+      <div class="main-page__prodlist" [ngClass]="{ 'full-width': !cartProducts[0] }">
+        <app-prod-list [cartProducts]="cartProducts" [products]="products"></app-prod-list>
+      </div>
+      <div class="main-page__cart" *ngIf="cartProducts[0]">
+        <app-cart [cartProducts]="cartProducts"></app-cart>
+      </div>
+    </div>
   </div>
 </main>
 

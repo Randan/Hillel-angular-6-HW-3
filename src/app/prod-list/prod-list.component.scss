@@ -1,0 +1,63 @@
+//colors
+$color_pink_swan_approx: #bbb;
+$color_tenn_approx: #d25900;
+$color_japanese_laurel_approx: #067306;
+$white: #fff;
+
+.prod-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	flex-wrap: wrap;
+	.prod {
+		width: 100%;
+		max-width: 280px;
+		box-sizing: border-box;
+		padding: 10px;
+		border: solid 1px $color_pink_swan_approx;
+		background: $white;
+		border-radius: 5px;
+		margin: 0 15px 15px;
+		img {
+			width: 100%;
+			max-width: 200px;
+			display: block;
+			margin: 0 auto 10px;
+		}
+		.prod-title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+		.prod-desc {
+			font-size: 14px;
+			margin-bottom: 15px;
+		}
+		.prod-id {
+			font-size: 10px;
+			margin-bottom: 10px;
+		}
+		.prod-price-box {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.prod-price {
+				font-size: 28px;
+				color: $color_tenn_approx;
+				font-weight: bold;
+			}
+			.prod-buy {
+				display: block;
+				border: none;
+				background: $color_japanese_laurel_approx;
+				border-radius: 5px;
+				height: 25px;
+				width: 75px;
+				color: $white;
+				text-transform: uppercase;
+				outline: 0;
+				cursor: pointer;
+			}
+		}
+	}
+}

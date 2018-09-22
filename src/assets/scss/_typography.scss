@@ -1,10 +1,4 @@
-.wrap {
-  display: block;
-  width: 1024px;
-  margin: 0 auto;
-}
-
-h1, h2, h5, p {
+h1, h2, h3, h5, p {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.3em;
 }
@@ -18,4 +12,16 @@ h1 {
 h2 {
   font-size: 28px;
   text-align: center;
+}
+
+h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+ul {
+  display: block;
+  li {
+    margin-bottom: 10px;
+  }
 }
