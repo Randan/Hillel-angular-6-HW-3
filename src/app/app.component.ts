@@ -1,5 +1,11 @@
+import { IProduct } from './prod-list/prod-list.component';
 import { Component } from '@angular/core';
 // import { UUID } from 'angular2-uuid';
+import { UUID } from 'angular2-uuid';
+
+interface ICart extends IProduct {
+  ammount: number;
+}
 
 @Component({
   selector: 'app-root',
@@ -11,7 +17,7 @@ export class AppComponent {
   // public prodId: any = require('uuid/v4');
   public products: Products[] = [
     {
-      id: 1,
+      id: UUID.UUID(),
       imgsrc: '../assets/img/products/1.jpg',
       title: 'Silver spinner',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
@@ -19,7 +25,7 @@ export class AppComponent {
       qty: 1
     },
     {
-      id: 2,
+      id: ,
       imgsrc: '../assets/img/products/2.jpg',
       title: 'Black spinner',
       desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
@@ -118,5 +124,19 @@ export class AppComponent {
     //   qty: 1
     // }
   ];
+
+  public addToCart(product: Products): void {
+    // const index:Products = this.cartProducts.findIndex((element: Products) => element.id === product.id)
+    // if(!index) {
+    //    this.cartProducts.push(product);
+    //    return
+    // }
+    // item['qty'] =  item.qty + 1
+    // this.cartProducts.slice(index, {})
+  }
+
+  public removeCartItem(id: number): void {
+    this.cartProducts.slice(id, 1);
+  }
 
 }

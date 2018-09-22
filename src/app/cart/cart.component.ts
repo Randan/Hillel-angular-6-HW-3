@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -10,12 +9,18 @@ export class CartComponent {
   @Input()
   public cartProducts: Products[];
 
-  public changeQty(event: any, i: number, value: number): void {
-    this.cartProducts[i].qty = value;
+  @Output()
+  public onChangeQty: EventEmitter<{id: string, qty: number}> = new EventEmitter()
+
+  @Output()
+  public onRemoveCartItem: EventEmitter<number> = new EventEmitter()
+
+  public changeQty(event: any, i: number, qty: number, product): void {
+    this.onChangeQty.emit({id: product.id, qty })
   }
-  public removeCartItem(i: number): void {
-    this.cartProducts[i].qty = 1;
-    this.cartProducts.splice(i, 1);
+
+  public removeCartItem(id: number): void {
+    this.onRemoveCartItem.emit(id)
   }
 
 }

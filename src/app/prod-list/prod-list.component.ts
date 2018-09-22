@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
+export type IProduct = {
 
+}
 @Component({
   selector: 'app-prod-list',
   templateUrl: './prod-list.component.html',
@@ -10,25 +12,10 @@ export class ProdListComponent {
   @Input()
   public products: Products[];
 
-  @Input()
-  public cartProducts: Products[];
+  @Output()
+  public onAddToCart: EventEmitter<Products> = new EventEmitter()
 
-  private newProdStatus: boolean;
-
-  public addToCart(product): any {
-    if (this.cartProducts[0]) {
-      this.newProdStatus = true;
-      for (let i = 0; i < this.cartProducts.length; i++) {
-        if (product.id === this.cartProducts[i].id) {
-          this.cartProducts[i].qty++;
-          this.newProdStatus = false;
-        }
-      }
-      if (this.newProdStatus) {
-        this.cartProducts.push(product);
-      }
-    } else {
-      this.cartProducts.push(product);
-    }
+  public addToCart(product: Products): void {
+    this.onAddToCart.emit(product)
   }
 }
