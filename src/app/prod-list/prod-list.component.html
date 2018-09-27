@@ -1,12 +1,11 @@
 <div class="prod-list">
   <div class="prod" *ngFor="let product of products">
-    <!-- <product [product]="product"></product> -->
-    <img [src]="product.imgsrc" alt="Spinner silver">
+    <img [src]="product.imgsrc" [alt]="product.title">
     <h5 class="prod-title">{{ product.title }}</h5>
     <p class="prod-desc">{{ product.desc }}</p>
     <div class="prod-price-box">
-      <span class="prod-price">{{ product.price | currency:'USD'}}</span>
-      <button class="prod-buy" (click)="addToCart(product);">Buy</button>
+      <span class="prod-price">{{ product.price | currency:'USD' }}</span>
+      <button class="prod-buy" (click)="addToCart(product)">Buy</button>
     </div>
   </div>
 </div>

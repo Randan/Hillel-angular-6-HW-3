@@ -1,7 +1,5 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core';
-export type IProduct = {
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-}
 @Component({
   selector: 'app-prod-list',
   templateUrl: './prod-list.component.html',
@@ -12,10 +10,11 @@ export class ProdListComponent {
   @Input()
   public products: Products[];
 
+  // tslint:disable-next-line:no-output-on-prefix
   @Output()
-  public onAddToCart: EventEmitter<Products> = new EventEmitter()
+  public onAddToCart: EventEmitter<Products> = new EventEmitter();
 
   public addToCart(product: Products): void {
-    this.onAddToCart.emit(product)
+    this.onAddToCart.emit(product);
   }
 }
