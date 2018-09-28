@@ -17,8 +17,8 @@ export class CartComponent {
   @Output()
   public onRemoveCartItem: EventEmitter<number> = new EventEmitter();
 
-  public changeQty(event: any, i: number, qty: number, product): void {
-    this.onChangeQty.emit({id: product.id, qty });
+  public changeQty(event: any, qty: number, product): void {
+    this.onChangeQty.emit({ id: product.id, qty });
   }
 
   public removeCartItem(id: number): void {

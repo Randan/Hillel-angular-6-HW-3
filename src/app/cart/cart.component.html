@@ -10,8 +10,8 @@
       min="1"
       #qty
       [value]="product.qty"
-      (change)="changeQty($event, i, qty.value, product)"
-      (keyup)="changeQty($event, i, qty.value, product)"
+      (change)="changeQty($event, qty.value, product)"
+      (keyup)="changeQty($event, qty.value, product)"
     >
     <span class="cart-list__price">${{ product.price * product.qty }}</span>
     <button class="cart-list__remove" (click)="removeCartItem(product.id)">&#10006;</button>
