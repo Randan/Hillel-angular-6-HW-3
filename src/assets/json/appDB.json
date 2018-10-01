@@ -1,0 +1,137 @@
+{
+  "products": [{
+    "id": "624a2bda-1376-d9b7-b232-03d2a52c2207",
+    "imgsrc": "../assets/img/products/1.jpg",
+    "title": "Silver spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 8,
+    "qty": 1
+  }, {
+    "id": "32253991-ef87-15ae-9e2d-f2df24ef6150",
+    "imgsrc": "../assets/img/products/2.jpg",
+    "title": "Black spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 5,
+    "qty": 1
+  }, {
+    "id": "0cca9984-6031-8401-7ea3-c3f1ce0db097",
+    "imgsrc": "../assets/img/products/3.jpg",
+    "title": "Gold spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 10,
+    "qty": 1
+  }, {
+    "id": "a507e48b-b701-503e-5f9a-55cead23577e",
+    "imgsrc": "../assets/img/products/4.jpg",
+    "title": "Black blinking spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 9,
+    "qty": 1
+  }, {
+    "id": "daf7b83b-2d39-ab2f-0862-5fcd9921de21",
+    "imgsrc": "../assets/img/products/5.jpg",
+    "title": "Pink spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 15,
+    "qty": 1
+  }, {
+    "id": "fc10b0fb-0a1e-6690-d682-9be9f5aafdc3",
+    "imgsrc": "../assets/img/products/6.jpg",
+    "title": "White blinking spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 7,
+    "qty": 1
+  }, {
+    "id": "c23fe8f5-987f-7e0d-c569-5940faa260e4",
+    "imgsrc": "../assets/img/products/7.jpg",
+    "title": "Blue spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 5,
+    "qty": 1
+  }, {
+    "id": "6da92adf-9053-968a-2149-cd07db8880b4",
+    "imgsrc": "../assets/img/products/8.jpg",
+    "title": "Yellow spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 8,
+    "qty": 1
+  }, {
+    "id": "42632a52-4980-949c-ba82-efd2ef4b7413",
+    "imgsrc": "../assets/img/products/9.jpg",
+    "title": "Red spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 10,
+    "qty": 1
+  }, {
+    "id": "33632b48-546e-d54b-9e79-2335e3ce804b",
+    "imgsrc": "../assets/img/products/10.jpg",
+    "title": "Purple spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 11,
+    "qty": 1
+  }, {
+    "id": "cdce5415-aca4-9f23-6733-f57076cfd5c2",
+    "imgsrc": "../assets/img/products/11.jpg",
+    "title": "Green spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 15,
+    "qty": 1
+  }, {
+    "id": "3b141e0c-53d0-cc1b-a5c2-e7b6540c917a",
+    "imgsrc": "../assets/img/products/12.jpg",
+    "title": "Orange spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 5,
+    "qty": 1
+  }],
+  "cart": [{
+    "id": "624a2bda-1376-d9b7-b232-03d2a52c2207",
+    "imgsrc": "../assets/img/products/1.jpg",
+    "title": "Silver spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 8,
+    "qty": 4
+  }, {
+    "id": "32253991-ef87-15ae-9e2d-f2df24ef6150",
+    "imgsrc": "../assets/img/products/2.jpg",
+    "title": "Black spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 5,
+    "qty": 2
+  }, {
+    "id": "0cca9984-6031-8401-7ea3-c3f1ce0db097",
+    "imgsrc": "../assets/img/products/3.jpg",
+    "title": "Gold spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 10,
+    "qty": 1
+  }, {
+    "id": "a507e48b-b701-503e-5f9a-55cead23577e",
+    "imgsrc": "../assets/img/products/4.jpg",
+    "title": "Black blinking spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 9,
+    "qty": 10
+  }, {
+    "id": "daf7b83b-2d39-ab2f-0862-5fcd9921de21",
+    "imgsrc": "../assets/img/products/5.jpg",
+    "title": "Pink spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 15,
+    "qty": 3
+  }, {
+    "id": "fc10b0fb-0a1e-6690-d682-9be9f5aafdc3",
+    "imgsrc": "../assets/img/products/6.jpg",
+    "title": "White blinking spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 7,
+    "qty": 1
+  }, {
+    "id": "c23fe8f5-987f-7e0d-c569-5940faa260e4",
+    "imgsrc": "../assets/img/products/7.jpg",
+    "title": "Blue spinner",
+    "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.",
+    "price": 5,
+    "qty": 4
+  }]
+}

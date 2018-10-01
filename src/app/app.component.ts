@@ -1,119 +1,29 @@
-import { Component } from '@angular/core';
-import { UUID } from 'angular2-uuid';
+import { Component, OnInit } from '@angular/core';
+import { AppService, IProduct } from './app.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  public products: Products[] = [
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/1.jpg',
-      title: 'Silver spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 8,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/2.jpg',
-      title: 'Black spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 5,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/3.jpg',
-      title: 'Gold spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 10,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/4.jpg',
-      title: 'Black blinking spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 9,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/5.jpg',
-      title: 'Pink spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 15,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/6.jpg',
-      title: 'White blinking spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 7,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/7.jpg',
-      title: 'Blue spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 5,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/8.jpg',
-      title: 'Yellow spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 8,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/9.jpg',
-      title: 'Red spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 10,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/10.jpg',
-      title: 'Purple spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 11,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/11.jpg',
-      title: 'Green spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 15,
-      qty: 1
-    },
-    {
-      id: UUID.UUID(),
-      imgsrc: '../assets/img/products/12.jpg',
-      title: 'Orange spinner',
-      desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, maxime vel animi est praesentium velit qui at dicta recusandae a vero earum, repellat eius beatae ab neque consectetur quae aperiam.',
-      price: 5,
-      qty: 1
-    }
-  ];
+  public products: IProduct;
 
-  public cartProducts: Products[] = [];
+  public cartProducts: IProduct;
 
-  public cartIndexFind(itemId): number {
-    return this.cartProducts.findIndex((element: Products) => element.id === itemId);
+  constructor(private _appService: AppService) { }
+
+  ngOnInit() {
+    this._appService.getProducts().subscribe((products: IProduct) => this.products = products);
+    this._appService.getCart().subscribe((cartProducts: IProduct) => this.cartProducts = cartProducts);
   }
 
-  public addToCart(product: Products): void {
+  public cartIndexFind(itemId): number {
+    return this.cartProducts.findIndex((element: IProduct) => element.id === itemId);
+  }
+
+  public addToCart(product: IProduct): void {
     const index: number = this.cartIndexFind(product.id);
     if (index === -1) {
       this.cartProducts.push(product);

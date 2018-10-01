@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { IProduct } from '../app.service';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -7,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class CartComponent {
 
   @Input()
-  public cartProducts: Products[];
+  public cartProducts: IProduct[];
 
   // tslint:disable-next-line:no-output-on-prefix
   @Output()
