@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService, IProduct } from './app.service';
+import { AppService } from './app.service';
+import { IProduct } from './interfaces/product.interface';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,7 @@ import { AppService, IProduct } from './app.service';
 export class AppComponent implements OnInit {
 
   public products: IProduct;
-
-  public cartProducts: IProduct;
+  public cartProducts: any;
 
   constructor(private _appService: AppService) { }
 
@@ -42,4 +42,5 @@ export class AppComponent implements OnInit {
     const index: number = this.cartIndexFind(prod.id);
     this.cartProducts[index].qty = prod.qty;
   }
+
 }
