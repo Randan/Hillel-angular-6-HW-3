@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from '../interfaces/product.interface';
-import { ProdListService } from './prod-list.service';
+import { AppService } from '../app.service';
+// import { UUID } from 'angular2-uuid';
 
 @Component({
   selector: 'app-prod-list',
@@ -9,16 +10,15 @@ import { ProdListService } from './prod-list.service';
 })
 export class ProdListComponent implements OnInit {
 
-  @Input()
-  products: IProduct[];
+  public products: IProduct[] = [];
 
   @Input()
   cartProducts: IProduct[];
 
-  public constructor(private _ProdListService: ProdListService) { }
+  public constructor(private _AppService: AppService) { }
 
   ngOnInit() {
-    this._ProdListService.getProducts().subscribe((products: IProduct[]) => this.products = products);
+    this._AppService.getProducts().subscribe((products: IProduct[]) => this.products = products);
   }
 
   public addToCart(product: IProduct): void {
@@ -28,6 +28,10 @@ export class ProdListComponent implements OnInit {
       return;
     }
     this.cartProducts[index].qty++;
+  }
+
+  public cartIndexFind(itemId): number {
+    return this.cartProducts.findIndex((element: IProduct) => element.id === itemId);
   }
 
 }
