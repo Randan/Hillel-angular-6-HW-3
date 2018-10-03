@@ -1,21 +1,33 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IProduct } from '../interfaces/product.interface';
+import { ProdListService } from './prod-list.service';
 
 @Component({
   selector: 'app-prod-list',
   templateUrl: './prod-list.component.html',
   styleUrls: ['./prod-list.component.scss']
 })
-export class ProdListComponent {
+export class ProdListComponent implements OnInit {
 
   @Input()
-  public products: IProduct[];
+  products: IProduct[];
 
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output()
-  public onAddToCart: EventEmitter<IProduct> = new EventEmitter();
+  @Input()
+  cartProducts: IProduct[];
+
+  public constructor(private _ProdListService: ProdListService) { }
+
+  ngOnInit() {
+    this._ProdListService.getProducts().subscribe((products: IProduct[]) => this.products = products);
+  }
 
   public addToCart(product: IProduct): void {
-    this.onAddToCart.emit(product);
+    const index: number = this.cartIndexFind(product.id);
+    if (index === -1) {
+      this.cartProducts.push(product);
+      return;
+    }
+    this.cartProducts[index].qty++;
   }
+
 }
