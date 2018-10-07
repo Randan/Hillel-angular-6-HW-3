@@ -3,11 +3,11 @@
 <main>
   <div class="wrap">
     <div class="main-page">
-      <div class="main-page__prodlist" [ngClass]="{ 'full-width': !cartProducts.length }">
-        <app-prod-list [products]="products" (onAddToCart)="addToCart($event)"></app-prod-list>
+      <div class="main-page__prodlist">
+        <app-prod-list></app-prod-list>
       </div>
-      <div class="main-page__cart" *ngIf="cartProducts.length">
-        <app-cart [cartProducts]="cartProducts" (onRemoveCartItem)="removeCartItem($event)" (onChangeQty)="changeQty($event)"></app-cart>
+      <div class="main-page__cart">
+        <app-cart></app-cart>
       </div>
     </div>
   </div>

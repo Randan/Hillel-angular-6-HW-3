@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { IProduct } from '../../interfaces/product.interface';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -9,12 +11,36 @@ import { IProduct } from '../../interfaces/product.interface';
 })
 export class CartComponent implements OnInit {
 
-  public cartProducts: IProduct[] = [];
+  public cartProducts$!: Observable<IProduct[]>;
+  public cartProductsLength$!: Observable<number>;
 
   public constructor(private _cartService: CartService) { }
 
   public ngOnInit() {
-    this._cartService.getCart().subscribe((cartProducts: IProduct[]) => this.cartProducts = cartProducts);
+    this.getCart();
   }
+
+  public getCart(): void {
+    this.cartProducts$ = this._cartService.getCart();
+    this.cartProductsLength$ = this._cartService.getCart().pipe(
+      map((cartProducts: IProduct[]) => cartProducts.length)
+    );
+  }
+
+  public removeCartItem(id: string): void {
+    this._cartService.removeCartItem(id).subscribe(
+      () => console.log(`Product ${id} removed form cart`)
+    );
+  }
+
+  public changeCartProdQty(product: IProduct): void {
+    this._cartService.changeCartProdQty(product).subscribe(
+      () => console.log(`Product ${product.id} changed amount`)
+    );
+  }
+
+  // public cartIndexFind(itemId: string): number {
+  //   return this.cartProducts.findIndex((element: IProduct) => element.id === itemId);
+  // }
 
 }

@@ -1,11 +1,17 @@
 <div class="prod-list">
-  <div class="prod" *ngFor="let product of products">
-    <img [src]="product.imgsrc" [alt]="product.title">
-    <h5 class="prod-title">{{ product.title }}</h5>
-    <p class="prod-desc">{{ product.desc }}</p>
-    <div class="prod-price-box">
-      <span class="prod-price">{{ product.price | currency:'USD' }}</span>
-      <button class="prod-buy" (click)="addToCart(product)">Buy</button>
-    </div>
-  </div>
+  <mat-card class="prod" *ngFor="let product of products">
+      <mat-card-header>
+        <mat-card-title>{{ product.title }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image [src]="product.imgsrc" [alt]="product.title">
+      <mat-card-content>
+        <p>{{ product.desc }}</p>
+      </mat-card-content>
+      <mat-card-actions class="prod-price-box">
+        <span class="prod-price">{{ product.price | currency:'USD' }}</span>
+        <button mat-button class="prod-buy" (click)="addToCart(product)">Buy</button>
+      </mat-card-actions>
+    </mat-card>
 </div>
+
+

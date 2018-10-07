@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class ProdListComponent implements OnInit {
 
-  public products$: Observable<IProduct[]>;
+  public products$!: Observable<IProduct[]>;
+  public products: IProduct[] = [];
 
   public constructor(
     private _prodListService: ProdListService,
@@ -24,11 +25,16 @@ export class ProdListComponent implements OnInit {
   }
 
   public getProducts(): void {
-    this.products$ = this._prodListService.getProducts();
+    this._prodListService.getProducts().subscribe(
+      products => this.products = products
+    );
   }
 
   public addToCart(product: IProduct): void {
-    this._cartService.addToCart(product);
+    this._cartService.addToCart(product).subscribe(
+      res => console.log(res.id),
+      err => console.log(err)
+    );
   }
 
 }

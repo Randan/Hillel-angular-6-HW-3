@@ -1,19 +1,12 @@
-<h3>Cart</h3>
+<h3>Cart ({{ cartProductsLength$ | async }})</h3>
 
-<ul class="cart-list">
-  <li *ngFor="let product of cartProducts; index as i">
+<mat-list class="cart-list">
+  <mat-list-item class="cart-list-item" *ngFor="let product of cartProducts$ | async; index as i">
     <span class="cart-list__index">{{ i + 1 }}.</span>
     <div class="cart-list__title">{{ product.title }}</div>
-    <input
-      class="cart-list__qty"
-      type="number"
-      min="1"
-      #qty
-      [value]="product.qty"
-      (change)="changeQty($event, qty.value, product)"
-      (keyup)="changeQty($event, qty.value, product)"
-    >
+    <input class="cart-list__qty" type="number" min="1" #qty [value]="product.qty" (change)="changeCartProdQty(product)"
+      (keyup)="changeCartProdQty(product)">
     <span class="cart-list__price">${{ product.price * product.qty }}</span>
     <button class="cart-list__remove" (click)="removeCartItem(product.id)">&#10006;</button>
-  </li>
-</ul>
+  </mat-list-item>
+</mat-list>

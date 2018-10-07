@@ -2,51 +2,61 @@ import { Injectable } from '@angular/core';
 import { IProduct } from '../interfaces/product.interface';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
+  [x: string]: any;
 
   private _cartUrl = `${environment.api}cart`;
 
-  public cartProducts: IProduct[] = [];
-
-  public constructor(private _http: HttpClient) { }
-
-  public cartIndexFind(itemId): number {
-    return this.cartProducts.findIndex((element: IProduct) => element.id === itemId);
-  }
-
-  public addToCart(product: IProduct): void {
-    const index: number = this.cartIndexFind(product.id);
-    if (index === -1) {
-      this.cartProducts.push(product);
-      return;
-    }
-    this.cartProducts[index].qty++;
-  }
-
-  public removeCartItem(id: string): void {
-    const index: number = this.cartIndexFind(id);
-    this.cartProducts[index].qty = 1;
-    this.cartProducts.splice(index, 1);
-  }
-
-  public changeQty(prod): void {
-    const index: number = this.cartIndexFind(prod.id);
-    this.cartProducts[index].qty = prod.qty;
-  }
+  public constructor(
+    private _http: HttpClient
+  ) { }
 
   public getCart(): Observable<IProduct[]> {
-    return this._http.get<IProduct[]>(this._cartUrl).pipe(
-      catchError((error: Error) => {
-        console.log(error);
-        return of([]);
-      })
-    );
+    return this._http.get<IProduct[]>(this._cartUrl)
+      .pipe(
+        catchError(this.handleError('Get Cart', []))
+      );
+  }
+
+  public addToCart(product: IProduct): Observable<IProduct> {
+    // const body = product;
+    const body = JSON.stringify(product);
+    console.log(body);
+    return this._http.post<IProduct>(this._cartUrl, body)
+      .pipe(
+        catchError(this.handleError<IProduct>('Add to Cart'))
+      );
+  }
+
+  public changeCartProdQty(product: IProduct): Observable<IProduct> {
+    // const body = product;
+    const body = JSON.stringify(product);
+    console.log(body);
+    return this._http.put<IProduct>(this._cartUrl + '/', body)
+      .pipe(
+        catchError(this.handleError<IProduct>('Add to Cart'))
+      );
+  }
+
+  public removeCartItem(id: string) {
+    return this._http.delete<void>(this._cartUrl + '/' + id)
+      .pipe(
+        catchError(this.handleError('Delete Cart item', []))
+      );
+  }
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      console.log(`${operation} failed: ${error.message}`);
+      return of(result as T);
+    };
   }
 
 }

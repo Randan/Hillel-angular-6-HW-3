@@ -1,15 +1,8 @@
 .cart-list {
-  li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    border-bottom: solid 1px #bbb;
+  &-item {
+    border-bottom: solid 1px #adadad;
     &:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none; 
+      border: none;
     }
   }
   &__index {
@@ -20,9 +13,11 @@
   }
   &__qty {
     width: 35px;
+    margin-left: 10px;
   }
   &__price {
     width: 25px;
+    margin: 0 10px;
   }
   &__remove {
     width: 26px;
