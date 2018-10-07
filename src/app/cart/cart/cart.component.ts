@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
 
   public cartProducts$!: Observable<IProduct[]>;
   public cartProductsLength$!: Observable<number>;
+  public cartProducts: IProduct[] = [];
 
   public constructor(private _cartService: CartService) { }
 
@@ -25,6 +26,9 @@ export class CartComponent implements OnInit {
     this.cartProductsLength$ = this._cartService.getCart().pipe(
       map((cartProducts: IProduct[]) => cartProducts.length)
     );
+    this._cartService.getCart().subscribe(
+      cartProducts => this.cartProducts = cartProducts
+    );
   }
 
   public removeCartItem(id: string): void {
@@ -33,14 +37,10 @@ export class CartComponent implements OnInit {
     );
   }
 
-  public changeCartProdQty(product: IProduct): void {
-    this._cartService.changeCartProdQty(product).subscribe(
+  public changeCartProdQty(product: IProduct, qty: string): void {
+    this._cartService.changeCartProdQty(product, qty).subscribe(
       () => console.log(`Product ${product.id} changed amount`)
     );
   }
-
-  // public cartIndexFind(itemId: string): number {
-  //   return this.cartProducts.findIndex((element: IProduct) => element.id === itemId);
-  // }
 
 }

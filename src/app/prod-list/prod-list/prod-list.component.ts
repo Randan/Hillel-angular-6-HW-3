@@ -32,7 +32,7 @@ export class ProdListComponent implements OnInit {
 
   public addToCart(product: IProduct): void {
     this._cartService.addToCart(product).subscribe(
-      res => console.log(res.id),
+      res => console.log(res),
       err => console.log(err)
     );
   }

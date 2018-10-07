@@ -2,10 +2,15 @@ html, body {
   background: #eee;
 }
 
+html, body, body * {
+  box-sizing: border-box;
+}
+
 .wrap {
   display: block;
   width: 100%;
   max-width: 1280px;
   min-width: 320px;
   margin: 0 auto;
+  padding: 0 15px;
 }

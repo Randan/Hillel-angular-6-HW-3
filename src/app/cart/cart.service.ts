@@ -25,22 +25,20 @@ export class CartService {
   }
 
   public addToCart(product: IProduct): Observable<IProduct> {
-    // const body = product;
-    const body = JSON.stringify(product);
-    console.log(body);
+    const body = product;
     return this._http.post<IProduct>(this._cartUrl, body)
       .pipe(
         catchError(this.handleError<IProduct>('Add to Cart'))
       );
   }
 
-  public changeCartProdQty(product: IProduct): Observable<IProduct> {
-    // const body = product;
-    const body = JSON.stringify(product);
-    console.log(body);
-    return this._http.put<IProduct>(this._cartUrl + '/', body)
+  public changeCartProdQty(product: IProduct, qty: string): Observable<IProduct> {
+    // tslint:disable-next-line:radix
+    const productQty = parseInt(qty);
+    product.qty = productQty;
+    return this._http.put<IProduct>(this._cartUrl + '/' + product.id, product)
       .pipe(
-        catchError(this.handleError<IProduct>('Add to Cart'))
+        catchError(this.handleError<IProduct>('Change Cart Product quantaty'))
       );
   }
 

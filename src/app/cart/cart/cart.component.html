@@ -1,12 +1,12 @@
 <h3>Cart ({{ cartProductsLength$ | async }})</h3>
 
 <mat-list class="cart-list">
-  <mat-list-item class="cart-list-item" *ngFor="let product of cartProducts$ | async; index as i">
-    <span class="cart-list__index">{{ i + 1 }}.</span>
-    <div class="cart-list__title">{{ product.title }}</div>
-    <input class="cart-list__qty" type="number" min="1" #qty [value]="product.qty" (change)="changeCartProdQty(product)"
-      (keyup)="changeCartProdQty(product)">
-    <span class="cart-list__price">${{ product.price * product.qty }}</span>
+  <mat-list-item class="cart-list-item" *ngFor="let product of cartProducts">
+    <img class="cart-list__img" [src]="product.imgsrc" [alt]="product.title">
+    <div class="cart-list__title">{{ product.title }}<br> ({{ product.price | currency:'USD' }})</div>
+    <input class="cart-list__qty" type="number" min="1" [value]="product.qty" (change)="changeCartProdQty(product, $event.target.value)" (keyup)="changeCartProdQty(product, $event.target.value)">
+    <span class="cart-list__price">{{ product.price * product.qty | currency:'USD' }}</span>
     <button class="cart-list__remove" (click)="removeCartItem(product.id)">&#10006;</button>
   </mat-list-item>
+  <mat-list-item class="cart-list-item" *ngIf="cartProducts.length === 0">There is no items in shoping cart <a href="/" style="color: #d25900;">Back to Home</a></mat-list-item>
 </mat-list>
